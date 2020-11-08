@@ -1,0 +1,55 @@
+/* Scoreboard */
+.player{
+}
+
+/* Board */
+
+#board {
+  margin-top: 35px;
+}
+
+.cell {
+  width: 200px;
+  height: 200px;
+}
+
+.cell p {
+  text-align: center;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#board .row {
+  margin: 0 auto;
+  width: 600px;
+}
+
+#row-1 {
+  border-bottom: .7px solid  rgb(80, 73, 73);
+}
+
+#row-2 {
+  border-bottom: .7px solid  rgb(80, 73, 73);
+  border-top: .7px solid  rgb(80, 73, 73);
+}
+
+#row-3 {
+  border-top: .7px solid rgb(80, 73, 73);
+}
+
+.col-no-1 {
+  border-right: .7px solid  rgb(80, 73, 73);
+}
+
+.col-no-2 {
+  border-right: .7px solid  rgb(80, 73, 73);
+  border-left: .7px solid  rgb(80, 73, 73);
+}
+
+.col-no-3 {
+  border-left: .7px solid  rgb(80, 73, 73);
+}
