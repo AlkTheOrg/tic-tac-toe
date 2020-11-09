@@ -1,3 +1,7 @@
+body {
+  position: relative;
+}
+
 .gsw-yellow {
   background-color: #fdb927;
 }
@@ -14,6 +18,15 @@
 /* Scoreboard */
 .player {
   border-radius: 5%;
+  top: 150px;
+}
+
+#player-1 {
+  right: 150px;
+}
+
+#player-2 {
+  left: 150px;
 }
 
 .player .player-info {
@@ -42,6 +55,18 @@
   .player .p-name {
     font-size: 15px;
   }
+
+  .player {
+    top: 390px;
+  }
+  
+  #player-1 {
+    right: -55px;
+  }
+  
+  #player-2 {
+    left: -55px;
+  }
 }
 
 @media screen and (min-width:640px) and (max-width: 768px) {
@@ -51,6 +76,46 @@
 
   .player .player-info {
     margin-top: 5px;
+  }
+
+  .player {
+    top: -95px;
+  }
+  
+  #player-1 {
+    right: -15px;
+  }
+  
+  #player-2 {
+    left: -15px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .player {
+    top: -95px;
+  }
+  
+  #player-1 {
+    right: -10px;
+  }
+  
+  #player-2 {
+    left: -10px;
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1480px) {
+  .player {
+    top: 50px;
+  }
+  
+  #player-1 {
+    right: 50px;
+  }
+  
+  #player-2 {
+    left: 50px;
   }
 }
 
@@ -66,7 +131,8 @@ p[data-content="O"] {
 }
 
 #board {
-  margin-top: 35px;
+  position: relative;
+  top: -85px;
 }
 
 .cell {
