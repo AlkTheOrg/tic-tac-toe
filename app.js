@@ -97,17 +97,16 @@ const gameBoard = (function () {
     return cell;
   };
 
-  // 'X' or 'O' if winner; true if draw; false otherwise
   const isGameOver = () => {
     let result = false;
-    if (_isDraw()) {
+    let winner = _winner();
+    if (winner !== "") {
+      result = winner
+    } else if(_isDraw()){
       result = true;
-    } else {
-      let winner = _winner();
-      winner === "" ? (result = false) : (result = winner);
     }
     return result;
-  };
+  }
 
   // sake of visualising while debugging
   const display = () => {
