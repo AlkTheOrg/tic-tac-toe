@@ -101,12 +101,12 @@ const gameBoard = (function () {
     let result = false;
     let winner = _winner();
     if (winner !== "") {
-      result = winner
-    } else if(_isDraw()){
+      result = winner;
+    } else if (_isDraw()) {
       result = true;
     }
     return result;
-  }
+  };
 
   // sake of visualising while debugging
   const display = () => {
@@ -163,8 +163,8 @@ const displayController = (function () {
   const _switchPlayerColors = () => {
     let temp = otherPlayer.getColor();
     otherPlayer.setColor(currentPlayer.getColor());
-    currentPlayer.setColor(temp);    
-  }
+    currentPlayer.setColor(temp);
+  };
 
   // Switches the #p-color
   const _switchPlayerColorsText = () => {
@@ -178,7 +178,7 @@ const displayController = (function () {
     _switchPlayerBgColors();
     _switchPlayerColorsText();
     _switchPlayerColors();
-  }
+  };
 
   // Changes the turn
   const _changePlayers = () => {
@@ -192,9 +192,8 @@ const displayController = (function () {
   const _clearBoard = () => {
     board.reset();
     for (const row of boardVisual.children) {
-      for(const cell of row.children) {
-        if(cell.hasChildNodes())
-          cell.removeChild(cell.childNodes[0]);
+      for (const cell of row.children) {
+        if (cell.hasChildNodes()) cell.removeChild(cell.childNodes[0]);
       }
     }
   };
@@ -220,28 +219,25 @@ const displayController = (function () {
     let x = Number.parseInt(target.parentElement.id.slice(-1)); // row
     let y = Number.parseInt(
       target.classList[target.classList.length - 1].slice(-1)
-      ); //col
-      board.setCell(x, y, color);
-    };
+    ); //col
+    board.setCell(x, y, color);
+  };
 
   const _resetScoreBoards = () => {
-    player1.children[1].innerText = '0';
-    player2.children[1].innerText = '0';
-    if(player1.children[0].children[0].textContent === 'O')
-      _switchSides();
-    currentPlayer = playerFactory('Player 1', 'X');
-    otherPlayer = playerFactory('Player 2', 'O');
-  }
+    player1.children[1].innerText = "0";
+    player2.children[1].innerText = "0";
+    if (player1.children[0].children[0].textContent === "O") _switchSides();
+    currentPlayer = playerFactory("Player 1", "X");
+    otherPlayer = playerFactory("Player 2", "O");
+  };
 
   // Ends the current round
   const _endGame = (result) => {
     boardVisual.removeEventListener("click", playTurn);
     newRndBtn.classList.remove("d-none");
-    if (typeof result !== 'boolean')
-      _incrementScoreOf(otherPlayer.getColor());
-      // _getPlayerWithColor(result).classList.add('winner');
-      if(result === 'O')
-        _changePlayers();
+    if (typeof result !== "boolean") _incrementScoreOf(otherPlayer.getColor());
+    // _getPlayerWithColor(result).classList.add('winner');
+    if (result === "O") _changePlayers();
   };
 
   const startGame = () => {
@@ -254,7 +250,7 @@ const displayController = (function () {
     if (!e.target.hasChildNodes()) {
       const p = document.createElement("p");
       p.innerText = currentPlayer.getColor();
-      p.setAttribute('data-content', currentPlayer.getColor());
+      p.setAttribute("data-content", currentPlayer.getColor());
       e.target.appendChild(p);
       _changePlayers();
       _storeColorInCell(e.target, p.innerText);
@@ -277,10 +273,10 @@ const displayController = (function () {
     _clearBoard();
     _endGame(false);
     _resetScoreBoards();
-    startBtn.classList.toggle('d-none');
-    resetBtn.classList.toggle('d-none');
-    if(!newRndBtn.classList.contains('d-none'))
-      newRndBtn.classList.add('d-none');
+    startBtn.classList.toggle("d-none");
+    resetBtn.classList.toggle("d-none");
+    if (!newRndBtn.classList.contains("d-none"))
+      newRndBtn.classList.add("d-none");
   };
 
   startBtn.addEventListener("click", startGame);
